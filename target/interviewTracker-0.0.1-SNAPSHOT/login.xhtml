@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<f:view contentType="text/html">
+		
+		<h:head>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<title>Login</title>
+			<h:outputStylesheet library="css" name="styles.css" />
+		</h:head>
+		
+		<h:body styleClass="bodybg">
+			<p:panel header="Login" style="width:370px;margin:auto;">
+				<p:messages id="msg" showDetail="true" showSummary="true"
+					autoUpdate="true" />
+				<f:facet name="header">Login</f:facet>
+				
+				<h:form id="login-form">
+					<h:panelGrid columns="2" cellpadding="5" footerClass="right-align">
+					<h:outputLabel for="username" value="Username:" />
+						<p:inputText id="username" value="#{loginBean.username}"
+							required="true" label="username" placeholder="username"
+							requiredMessage="Enter username" />
+					<h:outputLabel for="password" value="Password:" />
+						<p:password id="password" value="#{loginBean.password}"
+							required="true" label="password" placeholder="password"
+							requiredMessage="Enter password" />
+	                  <f:facet name="footer">
+							<p:commandButton value="Login" action="#{loginBean.login()}"
+							onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" update="login-form, msg" id="btn-id" style="text-alignment:right" />
+						</f:facet>
+					</h:panelGrid>
+				</h:form>
+			  <h:form>
+				  <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+			                <p:graphicImage name="/demo/images/icon/Loading_throbber.png" />
+			          </p:dialog>
+				
+				</h:form>
+				
+				<f:facet name="footer">
+					<p:link href="#">forget you password</p:link>
+				</f:facet>
+			</p:panel>
+		</h:body>
+	</f:view>
+</html>

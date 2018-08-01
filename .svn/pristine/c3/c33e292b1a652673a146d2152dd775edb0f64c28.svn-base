@@ -1,0 +1,232 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	<p:growl id="growl" showDetail="true" sticky="false" autoUpdate="true"
+		globalOnly="true" />
+
+	<h:form id="consultancy-form">
+		<p:panel>
+			<f:facet name="header"> Consultancy Entry</f:facet>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="jobConsultancyName" value="Job Consultancy Name:" />
+						<p:inputText id="jobConsultancyName"
+							value="#{consultancyBean.jobConsultancy.consultancyName}" required="true" 
+							requiredMessage="Enter Job Consultancy Name"
+							placeholder="Job Consultancy Name:" validatorMessage="Please enter alphabets only">
+							<f:validateRegex pattern="[a-z ' A-Z]*" />
+							<f:validateLength maximum="144" />
+						</p:inputText>
+						<p:message for="jobConsultancyName" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="contactPersonName" value="Contact Person Name:" />
+						<p:inputText id="contactPersonName"
+							value="#{consultancyBean.jobConsultancy.contactPerson}" required="true" 
+							requiredMessage="Enter Contact Person Name"
+							placeholder="Enter Contact Person Name" validatorMessage="Please enter alphabets only">
+							<f:validateRegex pattern="[a-z A-Z]*" />
+							<f:validateLength maximum="44" />
+						</p:inputText>
+						<p:message for="contactPersonName" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-addressLine1" value="Address Line1:" />
+						<p:inputText required="true" id="counsultancy-addressLine1" 
+							value="#{consultancyBean.jobConsultancy.contactAdddress.address1}"
+							requiredMessage="Enter Address Line1" placeholder="Enter Address Line1">
+							<f:validateLength maximum="144" />
+						</p:inputText>
+						<p:message for="counsultancy-addressLine1" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-addressLine2" value="Address Line2:" />
+						<p:inputText id="counsultancy-addressLine2" 
+							value="#{consultancyBean.jobConsultancy.contactAdddress.address2}"
+							requiredMessage="Enter Address Line2" placeholder="Enter Address Line2">
+							<f:validateLength maximum="144" />
+						</p:inputText>
+						<p:message for="counsultancy-addressLine2" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-landmark" value="Landmark:" />
+						<p:inputText id="counsultancy-landmark" value="#{consultancyBean.jobConsultancy.contactAdddress.landMark}"
+							placeholder="Enter Landmark" required="true" requiredMessage="Enter Landmark">
+							<f:validateLength maximum="144" />
+						</p:inputText>
+						<p:message for="counsultancy-landmark" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-postalCode" value="Postal Code:" />
+						<p:inputText id="counsultancy-postalCode" required="true"
+							value="#{consultancyBean.jobConsultancy.contactAdddress.postalCode}" 
+							requiredMessage="Enter Postal Code"
+							validatorMessage="Not More Than Six Digits" placeholder="Enter Postal Code">
+							<f:validateLength minimum="6" maximum="6" />
+						   <f:validateRegex pattern="[0-9]*" />
+						</p:inputText>
+						<p:message for="counsultancy-postalCode" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-country" value="Country:" />
+						<p:inputText id="counsultancy-country" required="true"
+							requiredMessage="Enter Country" value="#{consultancyBean.jobConsultancy.contactAdddress.country}"
+							placeholder="Enter Country" validatorMessage="Please enter alphabets only">
+							<f:validateRegex pattern="[a-z A-Z]*" />
+							<f:validateLength maximum="49" />
+						</p:inputText>
+						<p:message for="counsultancy-country" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-state" value="State:" />
+						<p:inputText id="counsultancy-state" required="true" requiredMessage="Enter State"
+							value="#{consultancyBean.jobConsultancy.contactAdddress.state}" placeholder="Enter State" 
+							validatorMessage="Please enter alphabets  only">
+							<f:validateRegex pattern="[a-z A-Z]*" />
+							<f:validateLength maximum="49" />
+						</p:inputText>
+						<p:message for="counsultancy-state" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid>
+						<p:outputLabel for="counsultancy-city" value="City:" />
+						<p:inputText id="counsultancy-city" required="true" requiredMessage="Enter City" 
+							value="#{consultancyBean.jobConsultancy.contactAdddress.city}" placeholder="Enter City" 
+							size="46" validatorMessage="Please enter alphabets  only">
+							<f:validateRegex pattern="[a-z A-Z]*" />
+							<f:validateLength maximum="49" />
+						</p:inputText>
+						<p:message for="counsultancy-city" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-homePhone" value="Work Phone:" />
+						<p:inputMask id="counsultancy-homePhone" placeholder="Enter Home Phone" requiredMessage="Enter Home Phone"
+							validatorMessage="Only Number"	value="#{consultancyBean.jobConsultancy.contactAdddress.homePhone}">
+							<f:validateRegex pattern="[0-9]*" />
+							<f:validateLength maximum="49" />
+						</p:inputMask>
+						<p:message for="counsultancy-homePhone" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-workMobile" value="Work Mobile:" />
+						<p:inputText id="counsultancy-workMobile" required="true"
+							requiredMessage="Enter Work Mobile" validator="#{consultancyBean.workPhoneValidate}"
+							validatorMessage="Only Ten Digits" placeholder="Enter Work Mobile"
+							value="#{consultancyBean.jobConsultancy.contactAdddress.workMobile}">
+							<f:validateRegex pattern="[0-9]*" />
+							<f:validateLength minimum="10" maximum="10" />
+							<p:ajax update="counsultancy-workmobile-msg" event="blur" />
+							<f:validateLength maximum="44" />
+						</p:inputText>
+						<p:message for="counsultancy-workMobile"
+							id="counsultancy-workmobile-msg" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-homeMobile" value="Altarnate Mobile:" />
+						<p:inputText id="counsultancy-homeMobile" 
+							value="#{consultancyBean.jobConsultancy.contactAdddress.homeMobile}"
+							placeholder="Enter Altarnate Mobile" validator="#{consultancyBean.workPhoneValidate}"
+							validatorMessage="Only Ten Digits" requiredMessage="Enter Home Mobile">
+							<f:validateRegex pattern="[0-9]*" />
+							<f:validateLength minimum="10" maximum="10" />
+							<p:ajax update="counsultancy-homemobile-msg" event="blur" />
+						</p:inputText>
+						<p:message for="counsultancy-homeMobile"
+							id="counsultancy-homemobile-msg" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-officeEmail" value="Office Email:" />
+						<p:inputText id="counsultancy-officeEmail" value="#{consultancyBean.jobConsultancy.contactAdddress.email}"
+							validator="#{consultancyBean.emailValidate}" validatorMessage="Invalid email format"
+							placeholder="Enter valid email" required="true" requiredMessage="Enter Personal email">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							<p:ajax update="counsultancy-officeEmail-msg" event="blur" />
+							<f:validateLength maximum="49" />
+						</p:inputText>
+						<p:message for="counsultancy-officeEmail" id="counsultancy-officeEmail-msg" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="counsultancy-personalEmail" value="Alternative Email:" />
+						<p:inputText id="counsultancy-personalEmail" requiredMessage="Enter Alternative email"
+							validator="#{consultancyBean.emailValidate}" validatorMessage="Invalid email format"
+							placeholder="Enter valid email" 
+							value="#{consultancyBean.jobConsultancy.contactAdddress.alternateEmail}">
+							<f:validateRegex
+								pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+							<p:ajax update="counsultancy-personalEmail-msg" event="blur" />
+							<f:validateLength maximum="49" />
+						</p:inputText>
+						<p:message for="counsultancy-personalEmail"
+							id="counsultancy-personalEmail-msg" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="status" value="Status" />
+						<p:selectOneMenu id="status" style="width:125px"
+							value="#{consultancyBean.jobConsultancy.isActive}" required="true" requiredMessage="Enter Status">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItem itemLabel="Active" itemValue="Active" />
+							<f:selectItem itemLabel="Not Active" itemValue="Not Active" />
+						</p:selectOneMenu>
+						<p:message for="status" />
+					</h:panelGrid>
+				</div>
+			</div>
+
+			<f:facet name="footer">
+				<p:row>
+					<p:column colspan="6">
+						<p:commandButton value="Submit" action="#{consultancyBean.saveConsultant()}" icon="ui-icon-check"
+							onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" style="margin:0;" update=":mainBody">
+						</p:commandButton>
+					</p:column>
+				</p:row>
+			</f:facet>
+		</p:panel>
+	</h:form>
+</ui:composition>

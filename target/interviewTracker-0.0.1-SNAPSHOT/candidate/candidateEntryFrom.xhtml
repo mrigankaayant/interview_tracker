@@ -1,0 +1,479 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+	<p:growl id="growl" showDetail="true" sticky="false" autoUpdate="true"
+		globalOnly="true" />
+	
+	<h:form id="candidate-form" enctype="multipart/form-data">
+		
+		<p:panel>
+			<f:facet name="header">Enter Candidate Detail</f:facet>
+			<p:fieldset legend="Personal Details" style="margin-bottom:20px;">
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candidate-name" value="Candidate Name:" />
+							<p:inputText id="candidate-name" value="#{candidateBean.candidate.fullname}" required="true"
+								requiredMessage="Enter Candidate Name" placeholder="Enter Candidate Name" >
+								<f:validateRegex pattern="[a-z A-Z]*" />
+								</p:inputText>
+							<p:message for="candidate-name" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-dob" value="Date Of Birth:" />
+							<p:calendar id="candi-dob" value="#{candidateBean.candidate.dateOfBirth}"
+								placeholder="Enter Date Of Birth" required="true" requiredMessage="Enter Date Of Birth"
+								pattern="#{appConst.get('dateFormat')}" />
+							<p:message for="candi-dob" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-gender" value="Gender:" />
+							<p:selectOneRadio id="candi-gender" value="#{candidateBean.candidate.gender}" required="true"
+								requiredMessage="Enter Gender">
+								<f:selectItem itemValue="Male" itemLabel="Male" />
+								<f:selectItem itemValue="Female" itemLabel="Female" />
+							</p:selectOneRadio>
+							<p:message for="candi-gender" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-maritalStatus" value="Marital Status:" />
+							<p:selectOneRadio id="candi-maritalStatus" value="#{candidateBean.candidate.maritalStatus}">
+								<f:selectItem itemValue="Single" itemLabel="Single" />
+								<f:selectItem itemValue="Married" itemLabel="Married" />
+							</p:selectOneRadio>
+							<p:message for="candi-maritalStatus" />
+						</h:panelGrid>
+					</div>
+				</div>
+	    </p:fieldset>
+
+		<p:fieldset legend="Address Details" style="margin-bottom:20px;">
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-addressLine1" value="Address Line1:" />
+							<p:inputText id="candi-addressLine1" value="#{candidateBean.candidate.contactAdddress.address1}"
+								placeholder="Enter Address Line1" />
+							<p:message for="candi-addressLine1" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-addressLine2" value="Address Line2:" />
+							<p:inputText id="candi-addressLine2" value="#{candidateBean.candidate.contactAdddress.address2}"
+								 placeholder="Enter Address Line2" />
+							<p:message for="candi-addressLine2" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-landmark" value="Landmark:" />
+							<p:inputText id="candi-landmark" value="#{candidateBean.candidate.contactAdddress.landMark}"
+								placeholder="Enter Landmark" />
+							<p:message for="candi-landmark" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-postalCode" value="Postal Code:" />
+							<p:inputText id="candi-postalCode" value="#{candidateBean.candidate.contactAdddress.postalCode}"
+								placeholder="Enter Postal Code" validatorMessage="Only Six Digits">
+							<f:validateLength minimum="6" maximum="6" />
+							</p:inputText>
+							<p:message for="candi-postalCode" />
+						</h:panelGrid>
+					</div>
+					
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-state" value="State:" />
+							<p:inputText id="candi-state" value="#{candidateBean.candidate.contactAdddress.state}"
+								placeholder="Enter State" />
+						<p:message for="candi-state" />
+						</h:panelGrid>
+					 </div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-country" value="Country:" />
+							<p:inputText id="candi-country" value="#{candidateBean.candidate.contactAdddress.country}"
+								placeholder="Enter Country" />
+						<p:message for="candi-country" />
+						</h:panelGrid>
+					</div>
+
+				 <div class="ui-g-12 ui-md-6 ui-lg-6">
+			     	<h:panelGrid>
+							<p:outputLabel for="candi-city" value="City:" />
+							<p:inputText id="candi-city" value="#{candidateBean.candidate.contactAdddress.city}"
+								placeholder="Enter City" size="46" />
+							<p:message for="candi-city" />
+					</h:panelGrid>
+				</div>
+			</div>
+		</p:fieldset>
+
+			<p:fieldset legend="Contact Details" style="margin-bottom:20px;">
+           	    <div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="candi-homePhone" value="Phone:" />
+						<p:inputText id="candi-homePhone" value="#{candidateBean.candidate.contactAdddress.homePhone}"
+							validatorMessage="Please start with zero" placeholder="Enter Home Phone">
+						<f:validateRegex pattern="^[?:0|\\+][0-9\\s.\\/-]{6,20}$" />
+						</p:inputText>
+						<p:message for="candi-homePhone" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="work-Mobile" value="Mobile" />
+						<p:inputText id="work-Mobile" value="#{candidateBean.candidate.contactAdddress.workMobile}"
+							validator="#{candidateBean.workPhoneValidate}" validatorMessage="Only ten Digits"
+							placeholder="Enter work phone" required="true" requiredMessage="Enter work phone">
+						<f:validateRegex pattern="[0-9]*" />
+						<f:validateLength minimum="10" maximum="10" />
+						<p:ajax update="candidate-workMobile-msg" event="blur" />
+						</p:inputText>
+						<p:message for="work-Mobile" id="candidate-workMobile-msg" />
+					</h:panelGrid>
+				 </div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="alter-Mobile" value="Altenate Mobile" />
+						<p:inputText id="alter-Mobile" value="#{candidateBean.candidate.contactAdddress.homeMobile}"
+							validator="#{candidateBean.workPhoneValidate}" validatorMessage="ONLY TEN DIGITS"
+							placeholder="Enter alternate mobile">
+						<f:validateRegex pattern="[0-9]*" />
+						<f:validateLength minimum="10" maximum="10" />
+						<p:ajax update="candidate-altMobile-msg" event="blur" />
+						</p:inputText>
+						<p:message for="alter-Mobile" id="candidate-altMobile-msg" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+				    <h:panelGrid style="width:100%">
+						<p:outputLabel for="candi-officeEmail" value="Email:" />
+						<p:inputText id="candi-officeEmail" value="#{candidateBean.candidate.contactAdddress.email}"
+							validator="#{candidateBean.emailValidate}" validatorMessage="Invalid email format"
+							placeholder="Enter valid email" required="true" requiredMessage="Enter candidate's email">
+						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						<p:ajax update="candidate-email-msg" event="blur" />
+						</p:inputText>
+						<p:message for="candi-officeEmail" id="candidate-email-msg" />
+					</h:panelGrid>
+				</div>
+
+			<div class="ui-g-12 ui-md-6 ui-lg-3">
+				<h:panelGrid style="width:100%">
+					<p:outputLabel for="candi-alternateEmail" value="Alternate Email:" />
+					<p:inputText id="candi-alternateEmail" value="#{candidateBean.candidate.contactAdddress.alternateEmail}"
+							validator="#{candidateBean.emailValidate}" validatorMessage="Invalid email format"
+							placeholder="Enter valid email">
+						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						<p:ajax update="candidate-altemail-msg" event="blur" />
+						</p:inputText>
+						<p:message for="candi-alternateEmail" id="candidate-altemail-msg" />
+				</h:panelGrid>
+			</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="candi-currentLoc" value="Current Location:" />
+						<p:inputText id="candi-currentLoc" value="#{candidateBean.candidate.contactAdddress.currentLocation}"
+							required="true" requiredMessage="Enter candidate's current location"
+							placeholder="Enter current location">
+						</p:inputText>
+						<p:message for="candi-currentLoc" />
+					</h:panelGrid>
+				</div>
+
+				<div class="ui-g-12 ui-md-6 ui-lg-3">
+					<h:panelGrid style="width:100%">
+						<p:outputLabel for="candi-preffLoc" value="Prefferd Location:" />
+						<p:inputText id="candi-preffLoc" value="#{candidateBean.candidate.contactAdddress.prefferedLocation}"
+							required="true" requiredMessage="Enter candidate's preffered location"
+							placeholder="Enter prefferd location">
+						</p:inputText>
+						<p:message for="candi-preffLoc" />
+					</h:panelGrid>
+				</div>
+			</p:fieldset>
+
+			<p:fieldset legend="Work Experience" style="margin-bottom:20px;">
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-6">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="higest-qualification" value="Higest Qualification:" />
+							<p:selectOneMenu id="higest-qualification" required="true"
+								requiredMessage="Enter highest qualification" value="#{candidateBean.candidate.qualification}">
+								<f:selectItem itemLabel="---Select---" itemValue="" noSelectionOption="true" />
+								<f:selectItem itemValue="Certificates and diplomas" itemLabel="Certificates and diplomas" />
+								<f:selectItem itemValue="Bachelor's degrees" itemLabel="Bachelor's degrees" />
+								<f:selectItem itemValue="Honours degrees" itemLabel="Honours degrees" />
+								<f:selectItem itemValue="Master's degrees" itemLabel="Master's degrees" />
+								<f:selectItem itemValue="Postgraduate certificates and diplomas"
+									itemLabel="Postgraduate certificates and diplomas" />
+								<f:selectItem itemValue="Graduate certificates and diplomas"
+									itemLabel="Graduate certificates and diplomas" />
+							</p:selectOneMenu>
+							<p:message for="higest-qualification" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="years-of-exp" value="Years Of Experience:" />
+							<p:inputNumber id="years-of-exp" value="#{candidateBean.candidate.yearsOfExperienc}"
+								required="true" requiredMessage="Enter Years Of Experience" placeholder="Enter Years Of Experience">
+							</p:inputNumber>
+							<p:message for="years-of-exp" />
+						</h:panelGrid>
+					</div>
+
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="current-emp" value="Current Employer:" />
+							<p:inputText id="current-emp" value="#{candidateBean.candidate.currentEmployer}" 
+							    validatorMessage="Enter alphabets only" required="true" requiredMessage="Enter Current Employer" 
+							    placeholder="Enter Current Employer">
+							<f:validateRegex pattern="[a-z A-Z]*" />
+							</p:inputText>
+							<p:message for="current-emp" />
+						</h:panelGrid>
+					</div>
+				</div>
+			</p:fieldset>
+
+			<p:fieldset legend="Official Details" style="margin-bottom:20px;">
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="source-name" value="Source Name:" />
+							<p:selectOneMenu id="source-name"
+								value="#{candidateBean.candidate.jobConsultancy.id}"
+								required="true" requiredMessage="Select Source ">
+								<f:selectItem itemLabel="---Select---" itemValue=""
+									noSelectionOption="true" />
+								<f:selectItems value="#{candidateBean.jobConsultancyList}" var="source" itemValue="#{source.id}"
+									itemLabel="#{source.consultancyName}" />
+							</p:selectOneMenu>
+							<p:message for="source-name" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="applied-for" value="Applied For:" />
+							<p:inputText id="applied-for" value="#{candidateBean.candidate.appliedFor}" required="true"
+							   validatorMessage="Enter alpahabets only" requiredMessage="Enter applied for"
+							    placeholder="Applied For">
+								<f:validateRegex pattern="[a-z A-Z]*" />
+							</p:inputText>
+							<p:message for="applied-for" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="candi-remarks" value="Remarks:" />
+							<p:inputTextarea id="candi-remarks" value="#{candidateBean.candidate.remarks}"
+								placeholder="Enter Remarks" required="true" requiredMessage="Enter Remarks" />
+							<p:message for="candi-remarks" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="expected-ctc" value="Expected CTC:" />
+							<p:inputNumber id="expected-ctc" value="#{candidateBean.candidate.expectedCtc}" required="true"
+								requiredMessage="Enter expected ctc" placeholder="Enter expexted ctc">
+							</p:inputNumber>
+							<p:message for="expected-ctc" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="current-ctc" value="Current CTC:" />
+							<p:inputNumber id="current-ctc" value="#{candidateBean.candidate.currentCtc}" required="true"
+								requiredMessage="Enter current ctc" placeholder="Enter current ctc">
+							</p:inputNumber>
+							<p:message for="current-ctc" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="notice-period" value="Notice Period:" />
+							<p:inputNumber id="notice-period" value="#{candidateBean.candidate.noticePeriod}" required="true"
+								requiredMessage="Enter notice period" placeholder="Enter notice period">
+							</p:inputNumber>
+							<p:message for="notice-period" />
+						</h:panelGrid>
+					</div>
+
+					<div class="ui-g-12 ui-md-6 ui-lg-3">
+						<h:panelGrid style="width:100%">
+							<p:outputLabel for="schudule-date" value="Schedule Interview Date:" />
+							<p:calendar id="schudule-date" value="#{candidateBean.candidate.interviewSchduleDate}" 
+								pattern="#{appConst.get('dateFormat')}" mask="true" placeholder="Enter Schedule Date">
+								</p:calendar>
+							<p:message for="schudule-date" />
+						</h:panelGrid>
+					</div>
+			 </div>
+		</p:fieldset>
+			
+			<p:fieldset legend="Uploaded Documents" rendered="#{candidateBean.candidate.id != null}" style="margin-bottom:20px;">
+				<p:panel id="showfileform">
+					<h:commandLink action="#{candidateBean.openFile()}" value="#{candidateBean.document.fileName}" target="_blank" style="color: red; font-weight: bolder;" />
+				</p:panel>
+			</p:fieldset>
+			
+			<p:fieldset legend="Assesment Details" rendered="#{candidateBean.candidate.id != null}" style="margin-bottom:20px;">
+				<p:panelGrid columns="6" style="width:100%">
+					<p:outputLabel for="interview-by" value="Interview By:" />
+					<p:outputLabel id="interview-by" value="#{candidateBean.candidate.interviewBy}" style="width:20%;font-weight:bold" />
+
+					<p:outputLabel for="remarks" value="Remarks: " style="margin-left:8%;" />
+					<p:outputLabel id="remarks" value="#{candidateBean.candidate.remarks}" style="font-weight:bold" />
+
+					<p:outputLabel for="candi-status" value="Candidate status:" />
+					<p:outputLabel id="candi-status" value="#{candidateBean.candidate.status}" style="font-weight:bold" />
+				</p:panelGrid>
+				
+				<p:panelGrid columns="6" style="width:100%">
+					<p:outputLabel for="offered-ctc" value="Offered CTC:" />
+					<p:outputLabel id="offered-ctc" value="#{candidateBean.candidate.offeredCtc}" style="font-weight:bold" />
+
+					<p:outputLabel for="candi-dateOfJoining" value="Tentative Date Of Joining:" />
+					<p:outputLabel id="candi-dateOfJoining" value="#{candidateBean.candidate.dateOfJoining}" mindate="#{currentDate}" style="font-weight:bold" />
+				</p:panelGrid>
+			</p:fieldset>
+
+			<f:facet name="footer">
+				<p:commandButton value="Save Candidate" action="#{candidateBean.saveCandidate()}" 
+					actionListener="#{candidateBean.enanleBtn()}" onstart="PF('statusDialog').show()"
+					onsuccess="PF('statusDialog').hide()" update=":mainBody">
+					<f:setPropertyActionListener value="#{true}" target="#{candidateBean.disable}" />
+				</p:commandButton>
+
+				<p:commandButton value="Upload Resume" process="@none" update=":uploadFileForm" oncomplete="PF('uploadDlg').show()" 
+					disabled="#{!(candidateBean.disable)}">
+					<f:setPropertyActionListener value="#{true}" target="#{candidateBean.disable}" />
+				</p:commandButton>
+				
+				<p:commandButton value="Assesment" oncomplete="PF('dlg2').show()" process="@none" 
+					disabled="#{candidateBean.disableAssmnt}" update=":createDialog:assmentDetails" />
+			</f:facet>
+		</p:panel>
+	</h:form>
+
+	<h:form id="uploadFileForm">
+		<p:dialog id="uploadFile" header="Upload :" width="350" widgetVar="uploadDlg" modal="true" showEffect="explode" hideEffect="fade">
+			<div class="ui-g-12 ui-md-12 ui-lg-12">
+				<p:outputLabel value="Upload Resume:" />
+				<h:panelGrid style="width:100%">
+					<p:fileUpload id="upload-file" auto="true" value="#{candidateBean.uplodedfile}" multiple="false"
+						fileUploadListener="#{candidateBean.handleFileUpload}"  validator="#{candidateBean.validate}"
+						allowTypes="/(\.|\/)(pdf|doc|docx|odt)$/"
+						validatorMessage="Upload the file" update=":growl,:candidate-form:showfileform">
+					</p:fileUpload>
+					<p:message for="upload-file" />
+				</h:panelGrid>
+			</div>
+		</p:dialog>
+	</h:form>
+
+	<h:form id="createDialog">
+		<p:dialog id="assmentDetails" header="Enter Assesment Details:"
+			widgetVar="dlg2" modal="true" showEffect="explode" hideEffect="fade">
+			
+			<h:panelGrid columns="1" id="interview">
+				<p:outputLabel for="interview-by" value="Interview By: " />
+				<p:inputText id="interview-by" value="#{candidateBean.candidate.interviewBy}" required="true"
+					requiredMessage="Enter interviewer name "
+					placeholder="Ente name of interviewer">
+				</p:inputText>
+				<p:message for="interview-by"></p:message>
+			</h:panelGrid>
+			
+			<h:panelGrid columns="1" id="rmkrs">
+				<p:outputLabel for="remarks" value="Remarks: " />
+				<p:inputTextarea id="remarks" required="true" value="#{candidateBean.candidate.remarks}" />
+				<p:message for="remarks"></p:message>
+			</h:panelGrid>
+
+			<h:panelGrid columns="1" id="status">
+				<p:outputLabel for="candi-status" value="Candidate status:" />
+				<p:selectOneMenu id="candi-status" value="#{candidateBean.candidate.status}" required="true"
+					requiredMessage="Enter Candidate Status">
+					<f:selectItem itemLabel="---Select---" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItem itemValue="On Hold" itemLabel="On Hold" />
+					<f:selectItem itemValue="Selected" itemLabel="Selected" />
+					<f:selectItem itemValue="Rejected" itemLabel="Rejected" />
+					<f:ajax render="candi-dateOfJoining" />
+					<f:ajax render="offered-ctc" />
+					<f:ajax render="recrui-status" />
+				</p:selectOneMenu>
+				<p:message for="candi-status"></p:message>
+			</h:panelGrid>
+
+			<h:panelGrid columns="1" id="ctc">
+				<p:outputLabel for="offered-ctc" value="Offered CTC:" />
+				<p:inputText id="offered-ctc" value="#{candidateBean.candidate.offeredCtc}" required="true"
+					requiredMessage="Enter Offered CTC" disabled="#{candidateBean.candidate.status == null || candidateBean.candidate.status =='Rejected'}"
+					placeholder="Enter offered ctc">
+				</p:inputText>
+				<p:message for="offered-ctc"></p:message>
+			</h:panelGrid>
+
+			<h:panelGrid columns="1" id="join">
+				<p:outputLabel for="candi-dateOfJoining" value="Tentative Date Of Joining:" />
+				<p:calendar id="candi-dateOfJoining" pattern="#{appConst.get('dateFormat')}"
+					disabled="#{candidateBean.candidate.status == null || candidateBean.candidate.status =='On Hold' || candidateBean.candidate.status =='Rejected' }"
+					value="#{candidateBean.candidate.dateOfJoining}" mindate="#{currentDate}" placeholder="Enter date of joining" />
+				<p:message for="candi-dateOfJoining"></p:message>
+			</h:panelGrid>
+
+			<f:facet name="footer">
+				<p:commandButton action="#{candidateBean.saveAssement()}" value="Save Assement" 
+					update=":candidate-form,interview,rmkrs,status,ctc" icon="ui-icon-check" 
+					style="margin:0;float:right;margin-bottom:2%" 
+					oncomplete="handleLoginRequest(xhr, status, args)" process="@form">
+				</p:commandButton>
+			</f:facet>
+		</p:dialog>
+	</h:form>
+	
+	<script type="text/javascript">
+	    function handleLoginRequest(xhr, status, args) {
+	        if(args.validationFailed) {
+	            PF('dlg2').jq.effect("shake", {times:5}, 100);
+	        }
+	        else {
+	            PF('dlg2').hide();
+	        }
+	    }
+	</script>
+</ui:composition>

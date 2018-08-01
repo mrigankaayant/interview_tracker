@@ -1,0 +1,137 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	<p:growl id="growl" showDetail="true" sticky="false" autoUpdate="true"
+		globalOnly="true" />
+	<h:form id="candidate-detailList">
+    	<h:panelGroup id="table-wrapper">
+			<p:dataTable var="candidateDetails"
+				value="#{candidateBean.candidateLazyModel}" paginator="true"
+				rows="10"
+				paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+				rowsPerPageTemplate="10,20,50" filterEvent="change"
+				id="candidate-table" lazy="true" rendered="true"
+				tableStyle="width:auto;table-layout:auto" selectionMode="single"
+				selection="#{candidateBean.candidate}"
+				rowKey="#{candidateDetails.id}" sortBy="#{candidateDetails.id}"
+				sortOrder="descending" style="margin-top:5px">
+
+				<p:ajax event="rowDblselect" listener="#{candidateBean.onRowSelect}" update=":mainBody" />
+				
+				<f:facet name="header">
+					<p:row>
+						<p:column colspan="8">Candidate Detail List</p:column>
+					</p:row>
+				</f:facet>
+
+				<p:column headerText="Name" sortBy="#{candidateDetails.fullname}" filterBy="#{candidateDetails.fullname}" 
+					style="width:15%">
+					<h:outputText value="#{candidateDetails.fullname}" />
+				</p:column>
+
+				<p:column headerText="Consultancy Name" sortBy="#{candidateDetails.jobConsultancy.consultancyName}"
+					filterBy="#{candidateDetails.jobConsultancy.consultancyName}" style="width:15%">
+					<h:outputText value="#{candidateDetails.jobConsultancy.consultancyName}" />
+				</p:column>
+
+				<p:column headerText="Date of Birth" sortBy="#{candidateDetails.dateOfBirth}" filterBy="#{candidateDetails.dateOfBirth}" 
+				 	style="width:15%">
+					<h:outputText value="#{candidateDetails.dateOfBirth}" />
+				</p:column>
+
+				<p:column headerText="Gender" sortBy="#{candidateDetails.gender}" filterBy="#{candidateDetails.gender}" 
+					style="width:15%">
+					<h:outputText value="#{candidateDetails.gender}" />
+				</p:column>
+
+				<p:column headerText="Marital Status" sortBy="#{candidateDetails.maritalStatus}" 
+				filterBy="#{candidateDetails.maritalStatus}" style="width:15%">
+					<h:outputText value="#{candidateDetails.maritalStatus}" />
+				</p:column>
+
+        		<p:column headerText="Address1" sortBy="#{candidateDetails.contactAdddress.address1}" 
+					filterBy="#{candidateDetails.contactAdddress.address1}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.address1}" />
+				</p:column>
+
+				<p:column headerText="Landmark" sortBy="#{candidateDetails.contactAdddress.landMark}"
+					filterBy="#{candidateDetails.contactAdddress.landMark}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.landMark}" />
+				</p:column>
+
+				<p:column headerText="Postal Code" sortBy="#{candidateDetails.contactAdddress.postalCode}"
+					filterBy="#{candidateDetails.contactAdddress.postalCode}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.postalCode}" />
+				</p:column>
+
+				<p:column headerText="Country" sortBy="#{candidateDetails.contactAdddress.country}"
+					filterBy="#{candidateDetails.contactAdddress.country}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.country}" />
+				</p:column>
+
+               <p:column headerText="State" sortBy="#{candidateDetails.contactAdddress.state}"
+               	   filterBy="#{candidateDetails.contactAdddress.state}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.state}" />
+				</p:column>
+
+				<p:column headerText="Work Mobile" sortBy="#{candidateDetails.contactAdddress.workMobile}"
+					filterBy="#{candidateDetails.contactAdddress.workMobile}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.workMobile}" />
+				</p:column>
+
+				<p:column headerText="Email" sortBy="#{candidateDetails.contactAdddress.email}"
+					filterBy="#{candidateDetails.contactAdddress.email}" style="width:15%">
+					<h:outputText value="#{candidateDetails.contactAdddress.email}" />
+				</p:column>
+
+				<p:column headerText="Applied For" sortBy="#{candidateDetails.appliedFor}"
+					filterBy="#{candidateDetails.appliedFor}" style="width:15%">
+					<h:outputText value="#{candidateDetails.appliedFor}" />
+				</p:column>
+
+				<p:column headerText="Current CTC" sortBy="#{candidateDetails.currentCtc}"
+					filterBy="#{candidateDetails.currentCtc}" style="width:15%">
+					<h:outputText value="#{candidateDetails.currentCtc}" />
+				</p:column>
+
+				<p:column headerText="Notice Period" sortBy="#{candidateDetails.noticePeriod}"
+					filterBy="#{candidateDetails.noticePeriod}" style="width:15%">
+					<h:outputText value="#{candidateDetails.noticePeriod}" />
+				</p:column>
+
+				<p:column headerText="Schedule Interview" sortBy="#{candidateDetails.interviewSchduleDate}"
+					filterBy="#{candidateDetails.interviewSchduleDate}" style="width:15%">
+					<h:outputText value="#{candidateDetails.interviewSchduleDate}" />
+				</p:column>
+
+				<p:column headerText="Interview Date(YYYY/MM/DD)" sortBy="#{candidateDetails.interviewDate}"
+					filterBy="#{candidateDetails.interviewDate}" style="width:15%">
+					<h:outputText value="#{candidateDetails.interviewDate}" />
+				</p:column>
+
+				<p:column headerText="Interview By" sortBy="#{candidateDetails.interviewBy}"
+					filterBy="#{candidateDetails.interviewBy}" style="width:15%">
+					<h:outputText value="#{candidateDetails.interviewBy}" />
+				</p:column>
+
+				<p:column headerText="Date Of Joining" sortBy="#{candidateDetails.dateOfJoining}"
+					filterBy="#{candidateDetails.dateOfJoining}" style="width:15%">
+					<h:outputText value="#{candidateDetails.dateOfJoining}" />
+				</p:column>
+
+				<p:column headerText="Candidate Status" sortBy="#{candidateDetails.status}"
+					filterBy="#{candidateDetails.status}" style="width:15%">
+					<h:outputText value="#{candidateDetails.status}" />
+				</p:column>
+				
+				<p:column headerText="Recruitment Status" sortBy="#{candidateDetails.recrutmentStatus}"
+					filterBy="#{candidateDetails.recrutmentStatus}" style="width:15%">
+					<h:outputText value="#{candidateDetails.recrutmentStatus}" />
+				</p:column>
+			</p:dataTable>
+		</h:panelGroup>
+	</h:form>
+</ui:composition>

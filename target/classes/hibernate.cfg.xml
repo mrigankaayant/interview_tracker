@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.isolation">2</property>
+        
+        <!-- <property name="hibernate.connection.password">mysql</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/interview_tracker</property>
+        <property name="hibernate.connection.username">root</property> -->
+        
+        <property name="hibernate.connection.password">ayantprodroot</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/interview_tracker</property>
+        <property name="hibernate.connection.username">root</property>
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        
+        <mapping class="com.ayantsoft.interview.hibernate.pojo.User" />
+        <mapping class="com.ayantsoft.interview.hibernate.pojo.Candidate" />
+        <mapping class="com.ayantsoft.interview.hibernate.pojo.ContactAdddress" />
+        <mapping class="com.ayantsoft.interview.hibernate.pojo.JobConsultancy" />
+        <mapping class="com.ayantsoft.interview.hibernate.pojo.Doument" />
+    </session-factory>
+</hibernate-configuration>

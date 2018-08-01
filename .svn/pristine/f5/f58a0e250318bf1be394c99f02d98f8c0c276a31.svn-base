@@ -1,0 +1,6 @@
+########## LOCAL ##########
+filePath = /home/ayant3/FILE_UPLOAD/
+
+
+########## PRODUCTION ##########
+#filePath = /home/ayant/UPLOAD_FILES/Interview_Tracker/

@@ -1,0 +1,82 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<p:growl id="growl" showDetail="true" sticky="false" autoUpdate="true" />
+	
+	<h:form id="consultancy-detailList">
+		<h:panelGroup id="table-wrapper">
+			<p:dataTable id="consultancysDT" var="consultancy"
+				value="#{consultancyBean.jobConsultancyList}" selectionMode="single"
+				selection="#{consultancyBean.jobConsultancy}"
+				rowKey="#{consultancy.id}">
+
+				<p:ajax event="rowDblselect"
+					listener="#{consultancyBean.onRowSelect()}" update=":mainBody" />
+				
+				<p:column headerText="Consultancy Name">
+					<h:outputText value="#{consultancy.consultancyName}" />
+				</p:column>
+
+				<p:column headerText="Contact Person Name">
+					<h:outputText value="#{consultancy.contactPerson}" />
+				</p:column>
+
+				<p:column headerText="AddressLine1">
+					<h:outputText value="#{consultancy.contactAdddress.address1}" />
+				</p:column>
+
+				<p:column headerText="AddressLine2">
+					<h:outputText value="#{consultancy.contactAdddress.address2}" />
+				</p:column>
+				
+				<p:column headerText="Office E-Mail">
+					<h:outputText value="#{consultancy.contactAdddress.email}" />
+				</p:column>
+				
+				<p:column headerText="Alternate E-Mail">
+					<h:outputText value="#{consultancy.contactAdddress.alternateEmail}" />
+				</p:column>
+				
+				<p:column headerText="City">
+					<h:outputText value="#{consultancy.contactAdddress.city}" />
+				</p:column>
+				
+				<p:column headerText="State">
+					<h:outputText value="#{consultancy.contactAdddress.state}" />
+				</p:column>
+				
+				<p:column headerText="Country">
+					<h:outputText value="#{consultancy.contactAdddress.country}" />
+				</p:column>
+				
+				<p:column headerText="Work Mobile">
+					<h:outputText value="#{consultancy.contactAdddress.workMobile}" />
+				</p:column>
+				
+				<p:column headerText="Work Phone">
+					<h:outputText value="#{consultancy.contactAdddress.homePhone}" />
+				</p:column>
+				
+				<p:column headerText="Alternate Mobile">
+					<h:outputText value="#{consultancy.contactAdddress.homeMobile}" />
+				</p:column>
+				
+				<p:column headerText="Land Mark">
+					<h:outputText value="#{consultancy.contactAdddress.landMark}" />
+				</p:column>
+				
+				<p:column headerText="Postal Code">
+					<h:outputText value="#{consultancy.contactAdddress.postalCode}" />
+				</p:column>
+				
+				<p:column headerText="Status">
+					<h:outputText value="#{consultancy.isActive}" />
+				</p:column>
+			</p:dataTable>
+		</h:panelGroup>
+	</h:form>
+</ui:composition>

@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+			<meta name="apple-mobile-web-app-capable" content="yes" />
+			
+		</f:facet>
+		
+		<title>Recruitment</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+		
+		<style type="text/css">
+			.ui-ribbon .ui-colorpicker .ui-button {
+				height: 24px;
+			}
+			
+			.ui-icon.ui-ribbonicon-new {
+				margin-left: -10px !important;
+				margin-top: -20px !important;
+				background-image: url("#{resource['demo/images/icon/user.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-new-expense {
+				margin-left: -10px !important;
+				margin-top: -20px !important;
+				background-image: url("#{resource['demo/images/icon/new.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-expense-list {
+				margin-left: -10px !important;
+				margin-top: -20px !important;
+				background-image: url("#{resource['demo/images/icon/list-candidate.png']}");
+			}
+			
+			
+			.ui-icon.ui-ribbonicon-save {
+			    margin-left: -12px !important;
+				margin-top: -20px !important;
+				background-image: url("#{resource['demo/images/icon/bank.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-paste {
+			    margin-left: -12px !important;
+				margin-top: -20px !important;
+				background-image: url("#{resource['demo/images/icon/Money.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-cut {
+				background-image: url("#{resource['demo/images/icon/txn.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-print {
+				background-image: url("#{resource['demo/images/icon/print.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-zoomin {
+				background-image: url("#{resource['demo/images/icon/zoomin.png']}");
+			}
+			
+			.ui-icon.ui-ribbonicon-zoomout {
+				background-image: url("#{resource['demo/images/icon/zoomout.png']}");
+			}
+			</style>
+	
+	</h:head>
+	<body>
+		<div>
+			<div class="ui-ribbon">
+				<ui:insert name="header">
+					<h:form>
+						<p:tabMenu activeIndex="#{param.i}" style="border:none;">
+							<p:menuitem value="Candidate" outcome="/candidate/candidate.xhtml">
+								<f:param name="i" value="0" />
+							</p:menuitem>
+							<p:menuitem value="Counsultancy" outcome="/counsultancy/counsultancy.xhtml">
+								<f:param name="i" value="1" />
+							</p:menuitem>
+							<p:menuitem value="logout"  outcome="/login.xhtml">
+								<f:param name="i" value="2" />
+							</p:menuitem>
+							
+						</p:tabMenu>
+					</h:form>
+				</ui:insert>
+				<ui:insert name="submenu"></ui:insert>
+			</div>
+	
+			<div style="margin-top: 116px;">
+				<ui:insert name="content">Put default content here, if any.</ui:insert>
+			</div>
+			
+			<div>
+			<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+			    <p:graphicImage name="/demo/images/icon/Loading_throbber.png" />
+			</p:dialog>
+			</div>
+		</div>
+	</body>
+</html>

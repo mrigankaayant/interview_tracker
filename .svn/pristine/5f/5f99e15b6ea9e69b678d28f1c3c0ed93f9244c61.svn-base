@@ -1,0 +1,196 @@
+.firstColColored {
+	background: pink;
+}
+.showClass{
+	  display: none;
+}
+
+tr.ui-helper-hidden{
+	display : none !important;
+}
+
+
+
+.right-align {
+	text-align: right;
+}
+
+body {
+	color: #5c666a;
+	font-size: 0.8em;
+	margin: 4px;
+}
+
+.ui-widget-content {
+	color: #5c666a;
+}
+
+a {
+	color: #25aae1;
+	outline: medium none;
+	text-decoration: none;
+}
+
+.ui-ribbon {
+	font-size: 11px;
+	padding: 0;
+	border-bottom: 1px solid #d5d5d5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	opacity: 0.96;
+}
+
+.ui-button, .ui-button span, button.ui-button.ui-state-default span,
+	.ui-button.ui-state-default span {
+	font-weight: normal !important;
+}
+
+.ui-widget-header .ui-inputfield, .ui-widget-content .ui-inputfield {
+	font-weight: normal;
+	width: 220px;
+}
+
+.ui-autocomplete {
+	width: 220px !important;
+}
+
+.ui-ribbon .ui-ribbon-group {
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-top-colors: none;
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	border-color: -moz-use-text-color #bcc7cf -moz-use-text-color
+		-moz-use-text-color;
+	border-image: none;
+	border-style: none solid none none;
+	border-width: 0 1px 0 0;
+	box-shadow: none;
+	float: left;
+	padding: 0.2em;
+}
+
+.ui-ribbon .ui-ribbon-group .ui-ribbon-group-content {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	border: 0 none;
+	box-shadow: none;
+	height: 6em;
+	padding: 0.2em 0.2em 0;
+}
+
+.ui-ribbon .ui-ribbon-group .ui-ribbon-group-label {
+	border-width: 1px 0 0;
+	color: #333;
+	font-weight: 400;
+	margin-top: -1px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.ui-ribbon .ui-button {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	box-shadow: none;
+	color: #333;
+}
+
+.ui-ribbon-bigbutton {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	border: 1px solid transparent;
+	height: 52px;
+	text-decoration: none;
+	width: 3.5em;
+}
+
+.ui-ribbon-bigbutton .ui-icon {
+	height: 32px !important;
+	left: 50% !important;
+	margin-left: -17px !important;
+	margin-top: -24px !important;
+	width: 32px !important;
+}
+
+.ui-ribbon-bigbutton .ui-button-text {
+	font-size: 10px;
+	padding: 3em 0 0 !important;
+}
+
+.ui-ribbon .ui-button, .ui-ribbon .ui-selectonemenu {
+	float: left;
+	margin: 1px 2px;
+}
+
+.ui-ribbon .ui-selectonemenu {
+	border-radius: 3px 0 0 3px;
+	float: left;
+}
+
+.ui-ribbon .ui-buttonset .ui-button {
+	margin: 0 -1px 0 0;
+}
+
+.ui-ribbon .ui-inputfield {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	box-shadow: none;
+}
+
+.ui-ribbon .ui-selectonemenu.ui-state-default {
+	background: rgba(0, 0, 0, 0) none repeat scroll 0 center;
+	box-shadow: none;
+}
+
+.ui-ribbon .ui-selectonemenu .ui-selectonemenu-trigger {
+	background-image: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.ui-tabmenu li.ui-state-default.ui-state-active {
+	background: #fff none repeat scroll 0 0;
+	color: #555;
+	font-weight: normal;
+}
+
+.ui-tabmenu li.ui-state-active .ui-menuitem-text {
+	color: #212121;
+}
+
+.ui-tabmenu li.ui-state-default {
+	background: #f6f7f9 none repeat scroll 0 0;
+	border: 1px solid #d6d6d6;
+	color: #555;
+	font-weight: normal;
+}
+
+.ui-tabmenu li.ui-state-hover {
+	background: #ededf0 none repeat scroll 0 0;
+}
+
+/* ---------------------- */
+.ui-ribbon-groups {
+	background: #fff;
+	background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0,
+		rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%,
+		rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,
+		255, 255, 1)), color-stop(58%, rgba(255, 255, 255, 1)),
+		color-stop(71%, rgba(249, 249, 249, 1)),
+		color-stop(88%, rgba(237, 237, 237, 1)),
+		color-stop(100%, rgba(232, 232, 232, 1)));
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0,
+		rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%,
+		rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+	background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0,
+		rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%,
+		rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+	background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0,
+		rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%,
+		rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+	background: linear-gradient(top, rgba(255, 255, 255, 1) 0,
+		rgba(255, 255, 255, 1) 58%, rgba(249, 249, 249, 1) 71%,
+		rgba(237, 237, 237, 1) 88%, rgba(232, 232, 232, 1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+		endColorstr='#e8e8e8', GradientType=0)
+}
